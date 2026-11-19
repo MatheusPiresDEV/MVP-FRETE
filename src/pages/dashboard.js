@@ -95,10 +95,12 @@ function renderCharts(root, data) {
   const chartSpecs = [
     { title: "Top 10 oportunidades", description: "Rotas completas ordenadas pela maior diferença entre o preço oficial e a alternativa mais barata.", available: opportunities.length > 0, traces: [{ x: money(opportunities.map((item) => item.savingsCents)), y: labels(opportunities), type: "bar", orientation: "h", marker: { color: "#2878bd" } }], layout: { xaxis: { title: "Economia (R$)" } } },
     { title: "Economia por rota", description: "Economia potencial calculada individualmente por rota.", available: comparable.length > 0, traces: [{ x: labels(comparable), y: money(comparable.map((item) => item.savingsCents)), type: "bar", marker: { color: "#3d9b70" } }], layout: { xaxis: { tickangle: -30 } } },
-    { title: "Oficial vs. melhor backup", description: "Compara o preço efetivo da nomeação com o menor preço entre as alternativas.", available: comparable.length > 0, traces: [
-      { x: labels(comparable), y: money(comparable.map((item) => item.official.totalCents)), name: "Oficial", type: "bar" },
-      { x: labels(comparable), y: money(comparable.map((item) => item.bestBackup.totalCents)), name: "Melhor backup", type: "bar" },
-    ], layout: { barmode: "group", xaxis: { tickangle: -30 } } },
+    {
+      title: "Oficial vs. melhor backup", description: "Compara o preço efetivo da nomeação com o menor preço entre as alternativas.", available: comparable.length > 0, traces: [
+        { x: labels(comparable), y: money(comparable.map((item) => item.official.totalCents)), name: "Oficial", type: "bar" },
+        { x: labels(comparable), y: money(comparable.map((item) => item.bestBackup.totalCents)), name: "Melhor backup", type: "bar" },
+      ], layout: { barmode: "group", xaxis: { tickangle: -30 } }
+    },
     { title: "Ranking de transportadoras", description: "Vitórias em comparações válidas; empate conta separadamente e não como vitória.", available: ranking.length > 0, traces: [{ x: ranking.map((item) => item.wins), y: ranking.map((item) => item.name), type: "bar", orientation: "h", marker: { color: "#2878bd" } }] },
     { title: "Taxa de vitórias", description: "Vitórias divididas pelo total de comparações válidas da transportadora.", available: ranking.length > 0, traces: [{ x: ranking.map((item) => item.name), y: ranking.map((item) => item.winRate), type: "bar", marker: { color: "#45a37a" } }], layout: { yaxis: { title: "%" } } },
     { title: "Economia por veículo", description: "Soma da economia potencial agrupada por tipo de veículo.", available: byVehicle.size > 0, traces: [{ x: [...byVehicle.keys()], y: money([...byVehicle.values()]), type: "bar" }] },

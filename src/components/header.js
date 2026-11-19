@@ -6,7 +6,7 @@ export function renderHeader(online = navigator.onLine) {
   header.className = "app-header";
   header.innerHTML = `
     <div>
-      <h1>Portal de Inteligência de Fretes</h1>
+      <h1>Portal de Inteligência de Fretes | Fase de testes</h1>
       <span class="connection ${online ? "online" : "offline"}">${online ? "Conectado" : "Sem conexão"}</span>
     </div>
     <div class="header-actions">
