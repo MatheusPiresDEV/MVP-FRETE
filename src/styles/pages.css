@@ -1,0 +1,115 @@
+/* ===== PAGE HEADER ===== */
+
+.page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.page-heading-left {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+    flex: 1;
+}
+
+.page-heading-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.page-heading h2 {
+    margin: 0;
+    font-size: clamp(1.4rem, 2vw, 2.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text);
+    word-break: break-word;
+}
+
+.eyebrow {
+    margin: 0;
+    color: var(--blue);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font-size: clamp(.65rem, .8vw, .75rem);
+    font-weight: 700;
+}
+
+/* Botões dentro do cabeçalho */
+.page-heading .btn,
+.page-heading button {
+    white-space: nowrap;
+}
+
+/* ===== TABLET ===== */
+
+@media (max-width: 1024px) {
+
+    .page-heading {
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .page-heading h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 768px) {
+
+    .page-heading {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+    }
+
+    .page-heading-left,
+    .page-heading-right {
+        width: 100%;
+    }
+
+    .page-heading-right {
+        justify-content: flex-start;
+    }
+
+    .page-heading h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ===== CELULARES PEQUENOS ===== */
+
+@media (max-width: 480px) {
+
+    .page-heading {
+        margin-bottom: 16px;
+    }
+
+    .page-heading h2 {
+        font-size: 1.3rem;
+        line-height: 1.3;
+    }
+
+    .page-heading-right {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .page-heading-right .btn,
+    .page-heading-right button {
+        width: 100%;
+    }
+
+    .eyebrow {
+        font-size: .65rem;
+    }
+}

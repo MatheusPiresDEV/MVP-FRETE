@@ -1,0 +1,9 @@
+* { box-sizing: border-box; }
+html, body, #app { min-height: 100%; margin: 0; }
+body { font-family: Inter, "Segoe UI", Arial, sans-serif; color: var(--text); background: var(--background); }
+button, input, select, textarea { font: inherit; }
+a { color: inherit; text-decoration: none; }
+.button { border: 1px solid var(--border); border-radius: 7px; padding: 9px 13px; background: var(--surface); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+.button.primary { background: var(--navy); border-color: var(--navy); color: white; }
+.button.secondary:hover { border-color: var(--blue); color: var(--blue); }
+.icon-button { border: 0; background: transparent; font-size: 24px; cursor: pointer; }

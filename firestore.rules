@@ -1,0 +1,103 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+    function validText(text, max) {
+      return text is string && text.size() > 0 && text.size() <= max;
+    }
+    function validCreateActor() {
+      return validText(request.resource.data.createdByName, 100)
+        && validText(request.resource.data.createdByUid, 128)
+        && request.resource.data.createdByUid == request.auth.uid
+        && request.resource.data.keys().size() <= 60;
+    }
+    function validUpdateActor() {
+      return validText(request.resource.data.updatedByName, 100)
+        && validText(request.resource.data.updatedByUid, 128)
+        && request.resource.data.updatedByUid == request.auth.uid
+        && request.resource.data.keys().size() <= 60;
+    }
+    function noRevisionRegression() {
+      return !("revision" in request.resource.data)
+        || !("revision" in resource.data)
+        || request.resource.data.revision >= resource.data.revision;
+    }
+
+    match /routes/{routeId} {
+      allow read: if signedIn();
+      allow create: if signedIn()
+        && validCreateActor();
+      allow update: if signedIn() && validUpdateActor()
+        && noRevisionRegression()
+        && request.resource.data.createdByUid == resource.data.createdByUid;
+      allow delete: if false;
+
+      match /quotes/{quoteId} {
+        allow read: if signedIn();
+        allow create: if signedIn() && validCreateActor();
+        allow update: if signedIn() && validUpdateActor() && noRevisionRegression()
+          && request.resource.data.createdByUid == resource.data.createdByUid;
+        allow delete: if false;
+      }
+    }
+
+    match /carriers/{id} {
+      allow read: if signedIn();
+      allow create: if signedIn() && validCreateActor();
+      allow update: if signedIn() && validUpdateActor() && noRevisionRegression()
+        && request.resource.data.createdByUid == resource.data.createdByUid;
+      allow delete: if false;
+    }
+    match /vehicles/{id} {
+      allow read: if signedIn();
+      allow create: if signedIn() && validCreateActor();
+      allow update: if signedIn() && validUpdateActor() && noRevisionRegression()
+        && request.resource.data.createdByUid == resource.data.createdByUid;
+      allow delete: if false;
+    }
+    match /flowTypes/{id} {
+      allow read: if signedIn();
+      allow create: if signedIn() && validCreateActor();
+      allow update: if signedIn() && validUpdateActor() && noRevisionRegression()
+        && request.resource.data.createdByUid == resource.data.createdByUid;
+      allow delete: if false;
+    }
+    match /settings/{id} {
+      allow read: if signedIn();
+      allow create: if signedIn() && validCreateActor();
+      allow update: if signedIn() && validUpdateActor() && noRevisionRegression()
+        && request.resource.data.createdByUid == resource.data.createdByUid;
+      allow delete: if false;
+    }
+    match /appConfig/{id} {
+      allow read: if signedIn();
+      allow create: if signedIn() && validCreateActor();
+      allow update: if signedIn() && validUpdateActor() && noRevisionRegression()
+        && request.resource.data.createdByUid == resource.data.createdByUid;
+      allow delete: if false;
+    }
+    match /imports/{id} {
+      allow read: if signedIn();
+      allow create: if signedIn()
+        && validText(request.resource.data.usuario, 100)
+        && validText(request.resource.data.uid, 128)
+        && request.resource.data.uid == request.auth.uid;
+      allow update, delete: if false;
+    }
+    match /importMappings/{id} {
+      allow read: if signedIn();
+      allow create: if signedIn() && validCreateActor();
+      allow update: if signedIn() && validUpdateActor() && noRevisionRegression();
+      allow delete: if false;
+    }
+    match /auditLogs/{id} {
+      allow read: if signedIn();
+      allow create: if signedIn()
+        && request.resource.data.uid == request.auth.uid
+        && validText(request.resource.data.usuario, 100);
+      allow update, delete: if false;
+    }
+  }
+}

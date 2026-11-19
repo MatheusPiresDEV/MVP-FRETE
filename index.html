@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#153b66" />
+    <link rel="stylesheet" href="./src/styles/variables.css" />
+    <link rel="stylesheet" href="./src/styles/base.css" />
+    <link rel="stylesheet" href="./src/styles/layout.css" />
+    <link rel="stylesheet" href="./src/styles/components.css" />
+    <link rel="stylesheet" href="./src/styles/pages.css" />
+    <title>Portal de Inteligência de Fretes</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "firebase/app": "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js",
+          "firebase/auth": "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js",
+          "firebase/firestore": "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app">
+      <main class="auth-error"><h1>Portal de Inteligência de Fretes</h1><p>Carregando aplicação...</p></main>
+    </div>
+    <script defer src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+    <script defer src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>

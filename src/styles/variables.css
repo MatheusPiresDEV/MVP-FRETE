@@ -1,0 +1,14 @@
+:root {
+  --navy: #153b66;
+  --navy-2: #0d2a48;
+  --blue: #2878bd;
+  --text: #17212b;
+  --muted: #667085;
+  --border: #d8e0e8;
+  --surface: #ffffff;
+  --background: #f3f6f9;
+  --success: #247a55;
+  --warning: #ad7411;
+  --danger: #b42318;
+  --shadow: 0 8px 24px rgba(21, 59, 102, 0.08);
+}

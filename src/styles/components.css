@@ -1,0 +1,611 @@
+/* =========================
+   CARDS / PAINÉIS
+========================= */
+
+.panel,
+.metric-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.panel {
+    padding: clamp(14px, 2vw, 20px);
+}
+
+.metric-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.metric-card {
+    padding: clamp(12px, 2vw, 18px);
+    display: grid;
+    gap: 8px;
+}
+
+.metric-card span {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.metric-card strong {
+    font-size: clamp(20px, 3vw, 28px);
+    line-height: 1.2;
+}
+
+.metric-card small,
+.section-help {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.dashboard-guide {
+    margin-bottom: 16px;
+}
+
+.dashboard-guide h3 {
+    margin-top: 0;
+}
+
+.guide-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.guide-grid > div {
+    padding-left: 12px;
+    border-left: 3px solid #d5e7f6;
+}
+
+.guide-grid strong {
+    color: var(--navy);
+    font-size: 13px;
+}
+
+.guide-grid p {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.demo-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 0 0 16px;
+    padding: 12px 16px;
+    border: 1px solid #eed39b;
+    border-radius: 9px;
+    background: #fff8e8;
+    color: #704e0c;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.disabled-link {
+    opacity: .55;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* =========================
+   MODAIS
+========================= */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(13, 42, 72, .48);
+    display: grid;
+    place-items: center;
+    padding: 16px;
+}
+
+.modal {
+    width: min(600px, 100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.22);
+}
+
+.modal-header,
+.modal-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 14px 18px;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--border);
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.modal-body {
+    padding: 18px;
+}
+
+.modal-actions {
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--border);
+}
+
+/* =========================
+   TOOLBAR / FILTROS
+========================= */
+
+.toolbar,
+.filter-row,
+.section-heading,
+.quote-title,
+.form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.toolbar,
+.filter-row {
+    flex-wrap: wrap;
+}
+
+.filter-row {
+    justify-content: flex-start;
+    margin-bottom: 14px;
+}
+
+.filter-row input,
+.filter-row select,
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width: 100%;
+    min-width: 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px;
+    background: white;
+    color: var(--text);
+}
+
+.filter-row input {
+    min-width: 240px;
+}
+
+/* =========================
+   TABELAS
+========================= */
+
+.table-wrap {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%;
+    min-width: 780px;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+th,
+td {
+    padding: 10px 11px;
+    border-bottom: 1px solid #e8edf2;
+    text-align: left;
+    vertical-align: top;
+}
+
+th {
+    position: sticky;
+    top: 0;
+    background: #f7f9fb;
+    color: #475467;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* =========================
+   FORMULÁRIOS
+========================= */
+
+.form-grid,
+.form-grid.compact {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 13px;
+}
+
+.form-field {
+    display: grid;
+    gap: 6px;
+    align-content: start;
+    min-width: 0;
+    font-size: 13px;
+}
+
+.form-field textarea {
+    resize: vertical;
+}
+
+.form-field:has(textarea) {
+    grid-column: 1 / -1;
+}
+
+/* =========================
+   DETALHES / INSIGHTS
+========================= */
+
+.detail-grid,
+.insight-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.detail-grid > div {
+    display: grid;
+    gap: 4px;
+    padding: 8px 0;
+}
+
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin: 14px 0;
+    min-width: 0;
+}
+
+.chart-card {
+    min-width: 0;
+    overflow: hidden;
+}
+
+.plot {
+    width: 100%;
+    min-width: 0;
+    min-height: 270px;
+}
+
+.chart-card h3 {
+    margin: 0 0 4px;
+}
+
+.chart-card .section-help {
+    min-height: 38px;
+    margin: 0;
+}
+
+.empty-chart-state {
+    grid-column: 1 / -1;
+}
+
+.empty-chart-state h3 {
+    margin-top: 0;
+}
+
+.import-panel {
+    display: grid;
+    gap: 18px;
+}
+
+.import-intro h3 {
+    margin: 0 0 6px;
+}
+
+.import-intro p,
+.step-content > p {
+    color: var(--muted);
+    line-height: 1.55;
+}
+
+.import-step {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    align-items: start;
+    gap: 12px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #fff;
+}
+
+.import-step > b {
+    display: grid;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    border-radius: 50%;
+    background: #eaf3fb;
+    color: var(--blue);
+}
+
+.step-content {
+    min-width: 0;
+}
+
+.step-content h3 {
+    margin: 4px 0 6px;
+}
+
+.step-content .section-help {
+    margin: 4px 0 12px;
+}
+
+.file-drop-zone {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    min-height: 104px;
+    padding: 18px;
+    border: 1px dashed #91b9da;
+    border-radius: 10px;
+    background: #f7fbff;
+    transition: background .16s ease, border-color .16s ease;
+}
+
+.file-drop-zone.drag-over {
+    background: #eaf4fc;
+    border-color: var(--blue);
+}
+
+.file-drop-zone p {
+    margin: 0;
+    color: var(--muted);
+}
+
+.file-drop-zone input[type="file"] {
+    display: none;
+}
+
+#file-info {
+    flex-basis: 100%;
+    overflow-wrap: anywhere;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.subpanel {
+    background: #fafbfd;
+}
+
+.subpanel h3 {
+    margin-top: 0;
+}
+
+.detected-carriers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.detected-carriers label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: white;
+}
+
+.detected-carriers small {
+    color: var(--muted);
+}
+
+#preview-body input {
+    width: 100%;
+    min-width: 90px;
+    padding: 7px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+#validation-summary {
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: #f3f6f9;
+    font-weight: 600;
+}
+
+.insight-card {
+    min-height: 130px;
+}
+
+/* =========================
+   CONFLITOS / ABOUT
+========================= */
+
+.conflict-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.conflict-grid pre {
+    max-height: 240px;
+    overflow: auto;
+    padding: 10px;
+    background: #f3f6f9;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.about-list {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 8px;
+}
+
+/* =========================
+   NOTIFICAÇÕES
+========================= */
+
+#notifications {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 300;
+    display: grid;
+    gap: 8px;
+}
+
+.notification {
+    min-width: 280px;
+    max-width: 420px;
+    border-radius: 8px;
+    border-left: 4px solid var(--blue);
+    background: white;
+    box-shadow: var(--shadow);
+    padding: 12px 14px;
+    word-break: break-word;
+}
+
+/* =========================
+   TABLETS
+========================= */
+
+@media (max-width: 1024px) {
+
+    .metric-grid,
+    .detail-grid,
+    .insight-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .guide-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .form-grid,
+    .form-grid.compact {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .chart-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .metric-grid,
+    .detail-grid,
+    .insight-grid,
+    .guide-grid,
+    .chart-grid,
+    .form-grid,
+    .form-grid.compact,
+    .conflict-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .toolbar,
+    .filter-row,
+    .section-heading,
+    .quote-title,
+    .form-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-row input,
+    .filter-row select,
+    .toolbar button,
+    .filter-row button {
+        width: 100%;
+    }
+
+    .modal-header,
+    .modal-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .about-list {
+        grid-template-columns: 1fr;
+    }
+
+    .import-step {
+        grid-template-columns: 28px minmax(0, 1fr);
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .file-drop-zone {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .file-drop-zone .button {
+        width: 100%;
+    }
+
+    .chart-card .section-help {
+        min-height: 0;
+    }
+
+    .notification {
+        min-width: auto;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #notifications {
+        left: 12px;
+        right: 12px;
+        bottom: 12px;
+    }
+}
+
+/* =========================
+   CELULARES PEQUENOS
+========================= */
+
+@media (max-width: 480px) {
+
+    .panel,
+    .metric-card {
+        padding: 12px;
+    }
+
+    .modal-body {
+        padding: 14px;
+    }
+
+    .metric-card strong {
+        font-size: 20px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
+}
